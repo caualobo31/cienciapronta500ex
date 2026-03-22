@@ -495,6 +495,122 @@
   .empty { text-align: center; padding: 60px 20px; color: var(--muted); }
   .empty .emoji { font-size: 2.5rem; margin-bottom: 12px; }
 
+  /* ── BÔNUS ── */
+  .bonus-section { margin-bottom: 36px; }
+  .bonus-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bonus-toggle {
+    background: var(--white);
+    border: 1.5px solid #fbbf24;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+    box-shadow: var(--shadow);
+  }
+  .bonus-toggle:hover {
+    background: #fffbeb;
+    box-shadow: var(--shadow-hover);
+  }
+  .bonus-chevron {
+    font-size: 0.8rem;
+    color: #b45309;
+    transition: transform 0.25s ease;
+    font-weight: 900;
+  }
+  .bonus-chevron.open {
+    transform: rotate(180deg);
+  }
+  .bonus-grid {
+    margin-top: 12px;
+    animation: fadeDown 0.25s ease;
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .bonus-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+  }
+  .bonus-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: #fbbf24;
+  }
+  .bonus-icon {
+    width: 42px; height: 42px;
+    background: #fffbeb;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .bonus-card-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #b45309;
+    background: #fffbeb;
+    border-radius: 20px;
+    padding: 2px 10px;
+    width: fit-content;
+  }
+  .bonus-card-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    color: var(--text);
+  }
+  .bonus-card-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .bonus-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #e85d04;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 9px 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s;
+    margin-top: auto;
+  }
+  .bonus-btn:hover { background: #c44d00; }
+
   /* ── AVISO ── */
   .aviso {
     background: #fffbeb;
@@ -554,6 +670,61 @@
 
 <!-- CONTENT -->
 <div class="container">
+
+
+  <!-- BÔNUS -->
+  <div class="bonus-section">
+    <div class="bonus-title bonus-toggle" onclick="toggleBonus()" id="bonusToggle">
+      <span>🎁 Seus Bônus Exclusivos</span>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+        <span style="font-size:0.78rem;font-weight:600;color:var(--muted)">Toque para abrir</span>
+        <div class="bonus-chevron" id="bonusChevron">▼</div>
+      </div>
+    </div>
+    <div class="bonus-grid" id="bonusGrid" style="display:none;">
+
+      <div class="bonus-card">
+        <div class="bonus-icon">📋</div>
+        <div class="bonus-card-label">Bônus 1</div>
+        <div class="bonus-card-title">Planejamento Turbo de Aula Prática</div>
+        <div class="bonus-card-desc">Monte sua aula experimental de forma rápida e organizada, sem perder tempo.</div>
+        <a class="bonus-btn" href="https://drive.google.com/file/d/1bZR_LGHq5sECJisVLk80ZVX_h3jmykRX/view?usp=drive_link" target="_blank">
+          ⬇ Baixar PDF
+        </a>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-icon">🧪</div>
+        <div class="bonus-card-label">Bônus 2</div>
+        <div class="bonus-card-title">Guia de Aplicação Segura em Sala</div>
+        <div class="bonus-card-desc">Protocolos essenciais para conduzir experimentos com segurança em qualquer ambiente escolar.</div>
+        <a class="bonus-btn" href="https://drive.google.com/file/d/1G3wAZ9kqpNbUDiErTMxBR52PaynCofKL/view?usp=drive_link" target="_blank">
+          ⬇ Baixar PDF
+        </a>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-icon">❓</div>
+        <div class="bonus-card-label">Bônus 3</div>
+        <div class="bonus-card-title">Banco de Perguntas que Engajam</div>
+        <div class="bonus-card-desc">Perguntas prontas para despertar a curiosidade e a participação dos alunos.</div>
+        <a class="bonus-btn" href="https://drive.google.com/file/d/1rle_SKs8uCW8TdFHnxQi5fblkbCLkKNh/view?usp=drive_link" target="_blank">
+          ⬇ Baixar PDF
+        </a>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-icon">🛡️</div>
+        <div class="bonus-card-label">Bônus 4</div>
+        <div class="bonus-card-title">Como Evitar Bagunça em Aula Experimental</div>
+        <div class="bonus-card-desc">Estratégias práticas para manter a disciplina e o foco durante os experimentos.</div>
+        <a class="bonus-btn" href="https://drive.google.com/file/d/1JGrXC_sy5Vg0aYEwGWXVvT-CqnAG7Wk2/view?usp=drive_link" target="_blank">
+          ⬇ Baixar PDF
+        </a>
+      </div>
+
+    </div>
+  </div>
 
   <!-- AVISO -->
   <div class="aviso" id="avisoBox">
@@ -2989,6 +3160,17 @@ function openModal(id) {
 
 function closeModal(e) { if (e.target === document.getElementById('modalOverlay')) closeModalBtn(); }
 function closeModalBtn() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; }
+
+
+function toggleBonus() {
+  const grid = document.getElementById('bonusGrid');
+  const chevron = document.getElementById('bonusChevron');
+  const toggle = document.getElementById('bonusToggle');
+  const isOpen = grid.style.display !== 'none';
+  grid.style.display = isOpen ? 'none' : 'grid';
+  chevron.classList.toggle('open', !isOpen);
+  toggle.style.borderRadius = isOpen ? 'var(--radius)' : 'var(--radius) var(--radius) 0 0';
+}
 
 function filterCat(cat, el) {
   currentFilter = cat;
