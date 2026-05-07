@@ -628,6 +628,22 @@
     .stat-item { padding: 16px 20px; }
     .stat-num { font-size: 1.4rem; }
     .container { padding: 24px 16px 48px; }
+    .stats-bar { overflow-x: auto; justify-content: flex-start; }
+
+    /* Banner */
+    .promo-banner { font-size: 0.82rem; padding: 12px 36px 12px 12px; gap: 8px; }
+    .promo-badge { font-size: 0.68rem; padding: 3px 8px; }
+
+    /* Popup */
+    .anticaos-overlay { padding: 12px; }
+    .anticaos-body { padding: 20px 16px 18px; gap: 12px; }
+    .anticaos-headline { font-size: 1.25rem; }
+    .anticaos-subtitle { font-size: 0.82rem; }
+    .anticaos-copy { font-size: 0.82rem; }
+    .anticaos-benefits li { font-size: 0.82rem; }
+    .anticaos-price-real { font-size: 1.6rem; }
+    .anticaos-cta { font-size: 0.95rem; padding: 14px; }
+    .anticaos-mockup-img { width: 55%; max-width: 160px; }
   }
 
   /* ── LOGIN ── */
@@ -747,6 +763,196 @@
     .login-body { padding: 24px 24px 28px; }
     .login-title { font-size: 1.5rem; }
   }
+
+  /* ── BANNER ANTI-CAOS ── */
+  .promo-banner {
+    background: linear-gradient(90deg, #ea580c 0%, #f97316 100%);
+    border: 2px solid #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(234,88,12,0.35);
+    color: #fff;
+    padding: 14px 44px 14px 18px;
+    cursor: pointer;
+    position: relative;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: box-shadow 0.18s, filter 0.18s;
+  }
+  .promo-banner:hover { filter: brightness(1.06); box-shadow: 0 6px 24px rgba(234,88,12,0.45); }
+  .promo-badge {
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    animation: badgePulse 1.6s ease-in-out infinite;
+  }
+  @keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.1); }
+  }
+  .promo-banner-text { flex: 1; text-align: center; }
+  .promo-banner-close {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: #fff;
+    width: 26px; height: 26px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .promo-banner-close:hover { background: rgba(255,255,255,0.35); }
+
+  /* ── POPUP ANTI-CAOS ── */
+  .anticaos-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 300;
+    padding: 20px;
+    overflow-y: auto;
+    backdrop-filter: blur(2px);
+  }
+  .anticaos-overlay.open { display: flex; justify-content: center; align-items: flex-start; }
+  .anticaos-card {
+    background: #fff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    animation: modalIn 0.22s ease;
+    position: relative;
+  }
+  .anticaos-close-btn {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    border: 1.5px solid #e5e7eb;
+    background: #f4f5f7;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #6b7280;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+    z-index: 1;
+  }
+  .anticaos-close-btn:hover { background: #e5e7eb; color: #1a1d23; }
+  .anticaos-body { padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 16px; }
+  .anticaos-headline {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #1a1d23;
+    line-height: 1.2;
+    padding-right: 36px;
+  }
+  .anticaos-subtitle {
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.5;
+    margin-top: -8px;
+  }
+  .anticaos-mockup {
+    width: 100%;
+    height: 180px;
+    background: #f3f4f6;
+    border-radius: 10px;
+    border: 2px dashed #d1d5db;
+    display: flex; align-items: center; justify-content: center;
+    color: #9ca3af;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+  }
+  .anticaos-copy {
+    font-size: 0.88rem;
+    color: #374151;
+    line-height: 1.65;
+  }
+  .anticaos-benefits { display: flex; flex-direction: column; gap: 8px; }
+  .anticaos-benefits li {
+    list-style: none;
+    font-size: 0.88rem;
+    color: #1a1d23;
+    display: flex; gap: 8px; align-items: flex-start;
+    line-height: 1.45;
+  }
+  .anticaos-price-block {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .anticaos-price-old {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    text-decoration: line-through;
+  }
+  .anticaos-price-real {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: #16a34a;
+    line-height: 1.1;
+  }
+  .anticaos-price-label {
+    font-size: 0.78rem;
+    color: #6b7280;
+    margin-top: 2px;
+  }
+  .anticaos-cta {
+    display: block;
+    width: 100%;
+    background: #22c55e;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .anticaos-cta:hover { background: #16a34a; }
+  .anticaos-guarantee {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #9ca3af;
+  }
+  .anticaos-mockup-img {
+    width: 60%;
+    max-width: 200px;
+    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+    margin: 0 auto;
+  }
 </style>
 </head>
 <body>
@@ -791,6 +997,13 @@
 
 
   <!-- BÔNUS -->
+  <!-- BANNER ANTI-CAOS -->
+  <div class="promo-banner" id="promoBanner" onclick="openAnticaos()">
+    <span class="promo-badge">🔥 NOVO</span>
+    <span class="promo-banner-text">Sua turma não para quieta? Toque aqui e resolva isso →</span>
+    <button class="promo-banner-close" id="promoBannerClose" onclick="closeBanner(event)" aria-label="Fechar banner">✕</button>
+  </div>
+
   <div class="bonus-section">
     <div class="bonus-title bonus-toggle" onclick="toggleBonus()" id="bonusToggle">
       <span>🎁 Seus Bônus Exclusivos</span>
@@ -929,6 +1142,35 @@
         <div class="modal-block-title">❓ Perguntas para a turma</div>
         <ul class="questions-list" id="modalQuestions"></ul>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- POPUP ANTI-CAOS -->
+<div class="anticaos-overlay" id="anticaosOverlay" onclick="closeAnticaosOutside(event)">
+  <div class="anticaos-card" id="anticaosCard">
+    <button class="anticaos-close-btn" onclick="closeAnticaos()">✕</button>
+    <div class="anticaos-body">
+      <div class="anticaos-headline">Manual Anti-Caos</div>
+      <div class="anticaos-subtitle">+50 Técnicas Japonesas de disciplina adaptadas pra sala de aula brasileira</div>
+      <img class="anticaos-mockup-img" src="mockup-manual-anticaos.png" alt="Mockup Manual Anti-Caos">
+      <div class="anticaos-copy">
+        No Japão, turmas de 30 a 40 alunos ficam em silêncio sem o professor precisar levantar a voz. Sem ameaça, sem grito, sem coordenação.<br><br>
+        Adaptamos essas técnicas pra realidade da escola brasileira:
+      </div>
+      <ul class="anticaos-benefits">
+        <li>✅ Como fazer a turma se autogerenciar</li>
+        <li>✅ Combinados que a turma respeita de verdade</li>
+        <li>✅ Técnicas de atenção sem levantar a voz</li>
+        <li>✅ Dinâmicas de disciplina pra aplicar amanhã</li>
+      </ul>
+      <div class="anticaos-price-block">
+        <div class="anticaos-price-old">R$29,90</div>
+        <div class="anticaos-price-real">R$9,90</div>
+        <div class="anticaos-price-label">Oferta exclusiva pra quem já é aluno</div>
+      </div>
+      <a class="anticaos-cta" href="https://ggcheckout.app/checkout/v5/fGGUgvJwJbiRztdrGhbi" target="_blank">QUERO O MANUAL ANTI-CAOS</a>
+      <div class="anticaos-guarantee">🔒 Garantia de 15 dias. Se não funcionar, devolvemos seu dinheiro.</div>
     </div>
   </div>
 </div>
@@ -3363,6 +3605,35 @@ document.getElementById('loginEmail').addEventListener('input', function() {
 
 if (checkSession()) {
   document.getElementById('loginOverlay').style.display = 'none';
+}
+
+// ── BANNER + POPUP ANTI-CAOS ──
+const BANNER_KEY = 'cp_banner_closed';
+
+(function() {
+  if (sessionStorage.getItem(BANNER_KEY)) {
+    document.getElementById('promoBanner').style.display = 'none';
+  }
+})();
+
+function closeBanner(e) {
+  e.stopPropagation();
+  sessionStorage.setItem(BANNER_KEY, '1');
+  document.getElementById('promoBanner').style.display = 'none';
+}
+
+function openAnticaos() {
+  document.getElementById('anticaosOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAnticaos() {
+  document.getElementById('anticaosOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeAnticaosOutside(e) {
+  if (e.target === document.getElementById('anticaosOverlay')) closeAnticaos();
 }
 
 init();
